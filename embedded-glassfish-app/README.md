@@ -1,0 +1,26 @@
+# A simple servlet application on Eclipse GlassFish Embedded 7
+
+## Build
+
+```
+mvn clean package
+```
+
+## Run
+
+```
+java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp
+```
+
+Then access the app at http://localhost:8080
+
+NOTE: On Java 17, it might be necessary to add the 
+`--add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.naming/javax.naming.spi=ALL-UNNAMED` JVM arguments
+
+
+## Run with timing
+
+```
+STARTUP_PHRASE='successfully deployed' bash ../measure-startup-time.sh \
+  embedded-gf http://localhost:8080/ java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp
+```
