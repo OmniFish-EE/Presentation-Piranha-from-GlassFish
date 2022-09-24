@@ -19,37 +19,11 @@ Then run
 To update a function, run one of:
 
 * `cdk deploy --hotswap`
+* `./manage.sh update`
 
+Both options should reset warm lambda's even if the code doesn't change.
 
 ## Run
 
-```
-java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranha.PiranhaApp
-```
-
-Then access the app at http://localhost:8080
-
-
-## Run with timing
-
-```
-STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
-  piranha http://localhost:8080/ java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranha.PiranhaApp
-```
-
-## Run faster, without HTTP and logging
-
-### Run
-
-```
-java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
-```
-
-Prints a response immediately.
-
-### Run with timing
-
-```
-STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
-  piranha-minimal - java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
-```
+* `cd piranha-function-infra`
+* `./manage.sh invoke`
