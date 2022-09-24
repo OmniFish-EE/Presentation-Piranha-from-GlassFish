@@ -20,8 +20,6 @@
         <module>springboot-app</module>
         <module>piranha-app</module>
         <module>piranha-lambda</module>
-        <module>piranha-rest-app</module>
-        <module>piranha-rest-cdi-app</module>
     </modules>
     
     <build>
