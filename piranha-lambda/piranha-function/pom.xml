@@ -36,7 +36,7 @@
         <dependency>
             <groupId>cloud.piranha</groupId>
             <artifactId>piranha-embedded</artifactId>
-            <version>22.9.0</version>
+            <version>${piranha.version}</version>
         </dependency>
     </dependencies>
     
