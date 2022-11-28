@@ -12,6 +12,13 @@ mvn clean package
 java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp
 ```
 
+This variant creates a temporary WAR file on disk using the ScatteredArchive (an archive assembled during the startup)
+Or, alternatively, to get a slightly better startup time, run the version that deploys an exploded WAR archive:
+
+```
+java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishExplodedWarApp
+```
+
 Then access the app at http://localhost:8080
 
 NOTE: On Java 17, it might be necessary to add the 
@@ -23,4 +30,11 @@ NOTE: On Java 17, it might be necessary to add the
 ```
 STARTUP_PHRASE='successfully deployed' bash ../measure-startup-time.sh \
   embedded-gf http://localhost:8080/ java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp
+```
+
+Or, with the exploded archive:
+
+```
+STARTUP_PHRASE='successfully deployed' bash ../measure-startup-time.sh \
+  embedded-gf http://localhost:8080/ java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishExplodedWarApp
 ```
