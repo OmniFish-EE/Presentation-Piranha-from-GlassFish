@@ -18,10 +18,14 @@ import java.util.stream.Collectors;
 
 public class PiranhaFunction implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
-    static final EmbeddedPiranha piranha = new EmbeddedPiranhaBuilder()
+    private static EmbeddedPiranha piranha = startPiranha();
+
+    static EmbeddedPiranha startPiranha() {
+        return new EmbeddedPiranhaBuilder()
             .servletMapped(PiranhaLambdaSimpleServlet.class, "/")
             .build()
             .start();
+    }
 
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent awsRequest, Context context) {

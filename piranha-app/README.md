@@ -38,3 +38,24 @@ Prints a response immediately.
 STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
   piranha-minimal - java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
 ```
+
+```
+STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
+  piranha - java -cp 'target/piranha-app-1.0-SNAPSHOT.jar:target/dependencies/*' -XX:SharedArchiveFile=piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaApp
+```
+
+## Run with Class Data Sharing
+
+### Prepare class data
+
+```
+java -cp 'target/piranha-app-1.0-SNAPSHOT.jar:target/dependencies/*' \
+  -XX:ArchiveClassesAtExit=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
+```
+
+### Run with prepared class data
+
+```
+STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
+  piranha - java -cp 'target/piranha-app-1.0-SNAPSHOT.jar:target/dependencies/*' -XX:SharedArchiveFile=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
+```
