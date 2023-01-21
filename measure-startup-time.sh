@@ -44,7 +44,7 @@ esac
 echo COMMAND: $COMMAND
 
 rm -rf /tmp/$RUNTIME.pid
-time ($COMMAND > /tmp/$RUNTIME.log 2>&1 & echo $! > /tmp/$RUNTIME.pid && tail -f /tmp/$RUNTIME.log | sed "/$STARTUP_PHRASE/ q" && test "$URL" "!=" - && curl $URL 2>&1)
+time ($COMMAND > /tmp/$RUNTIME.log 2>&1 & echo $! > /tmp/$RUNTIME.pid && tail -f /tmp/$RUNTIME.log | sed "/$STARTUP_PHRASE/ q" && test "$URL" "!=" - && echo && curl $URL 2>&1)
 echo Press Enter to shutdown the application...
 read
 kill `cat /tmp/$RUNTIME.pid` 2>&1 | grep -v 'No such process'
