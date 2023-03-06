@@ -18,6 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>10.0.0</jakartaee>
+        <glassfish.version>7.0.2</glassfish.version>
     </properties>
     
     <dependencies>
@@ -72,7 +73,7 @@
                                         <artifactItem>
                                             <groupId>org.glassfish.main.distributions</groupId>
                                             <artifactId>glassfish</artifactId>
-                                            <version>7.0.0-M10</version>
+                                            <version>${glassfish.version}</version>
                                             <type>zip</type>
                                             <overWrite>false</overWrite>
                                             <outputDirectory>${project.build.directory}</outputDirectory>

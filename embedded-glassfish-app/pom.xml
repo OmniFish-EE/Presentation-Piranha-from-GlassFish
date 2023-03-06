@@ -12,14 +12,14 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <exec.mainClass>ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp</exec.mainClass>
+        <glassfish.embedded.version>7.0.2</glassfish.embedded.version>
     </properties>
     <name>Piranha from GF: Embedded GlassFish App</name>
     <dependencies>
         <dependency>
             <groupId>org.glassfish.main.extras</groupId>
             <artifactId>glassfish-embedded-all</artifactId>
-            <!--<version>7.0.0-SNAPSHOT</version>-->
-            <version>7.0.0-M10</version>
+            <version>${glassfish.embedded.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--        <dependency>
