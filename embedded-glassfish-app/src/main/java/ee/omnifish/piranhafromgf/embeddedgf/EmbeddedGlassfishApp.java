@@ -19,7 +19,7 @@ public class EmbeddedGlassfishApp {
         glassfish.start();
 
         ScatteredArchive archive = new ScatteredArchive("simpleapp", ScatteredArchive.Type.WAR);
-        archive.addClassPath(new File("target", "classes"));
+        addCurrentClasspathToArchive(archive);
 
         final Deployer deployer = glassfish.getDeployer();
         final String appName = deployer.deploy(archive.toURI(), "--contextroot=/");
@@ -42,4 +42,28 @@ public class EmbeddedGlassfishApp {
 
         });
     }
+
+    private static void addCurrentClasspathToArchive(ScatteredArchive archive) {
+        for (String pathElem : System.getProperty("java.class.path").split(File.pathSeparator)) {
+            if ( ! jarFileMatchesAny(pathElem, "jakarta\\.", "glassfish-embedded-")) {
+                try {
+                    archive.addClassPath(new File(pathElem));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
+    }
+
+    private static final String REGEX_FS = File.separator.replace("\\", "\\\\");
+
+    private static boolean jarFileMatchesAny(String pathElem, String... matches) {
+        for (String match : matches) {
+            if (pathElem.matches(".*" + REGEX_FS + match + "[^" + REGEX_FS + "]*\\.jar")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
