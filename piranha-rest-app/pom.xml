@@ -12,7 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>ee.omnifish.superfast.piranha.PiranhaRestApp</exec.mainClass>
-        <piranha.version>22.10.0</piranha.version>
+        <piranha.version>23.4.0</piranha.version>
     </properties>
     <name>Piranha from GF: Piranha REST App</name>
     
