@@ -19,9 +19,15 @@ function cmd_invoke() {
       REGION="--region $AWS_REGION"
   fi
 
+  local VERSION=""
+  if [ -n "$AWS_LAMBDA_VERSION" ]
+    then
+      VERSION="--qualifier $AWS_LAMBDA_VERSION"
+  fi
+
   aws lambda invoke response.txt \
     ${inputFormat} \
-    --function-name ${FUNCTION_NAME} \
+    --function-name ${FUNCTION_NAME} $VERSION \
     $REGION \
     --payload file://payload.json \
     --log-type Tail \

@@ -27,3 +27,10 @@ Both options should reset warm lambda's even if the code doesn't change.
 
 * `cd piranha-function-infra`
 * `./manage.sh invoke`
+
+## Snapstart
+
+To run with Snapstart optimization, we need to run a specific version/alias of the function:
+
+* `cd piranha-function-infra`
+* `AWS_LAMBDA_VERSION=MyVersion ./manage.sh invoke`
