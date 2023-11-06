@@ -10,13 +10,9 @@ import java.util.logging.LogManager;
 
 public class PiranhaApp {
 
-    private static boolean classDataSharing = false;
-
     public static void main(String[] args) {
 
-        if (args.length > 0) {
-            classDataSharing = args[0].equals("cds");
-        }
+        ClassDataSharing.init(args);
 
         initLogging();
 
@@ -35,7 +31,7 @@ public class PiranhaApp {
 
         httpServer.start();
 
-        shutdownIfCDS(httpServer, piranha);
+        ClassDataSharing.shutdownIfCDS(httpServer, piranha);
 
         System.out.println("Application started!");
 
@@ -63,12 +59,24 @@ public class PiranhaApp {
         });
     }
 
-    private static void shutdownIfCDS(DefaultHttpServer httpServer, EmbeddedPiranha piranha) {
-        if (classDataSharing) {
-            httpServer.stop();
-            piranha.stop()
-                    .destroy();
-            System.exit(0);
+    private static class ClassDataSharing {
+
+        private static boolean classDataSharing = false;
+
+        public static void init(String[] args) {
+            if (args.length > 0) {
+                classDataSharing = args[0].equals("cds");
+            }
         }
+
+        public static void shutdownIfCDS(DefaultHttpServer httpServer, EmbeddedPiranha piranha) {
+            if (classDataSharing) {
+                httpServer.stop();
+                piranha.stop()
+                        .destroy();
+                System.exit(0);
+            }
+        }
+
     }
 }

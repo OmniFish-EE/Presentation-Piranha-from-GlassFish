@@ -12,6 +12,9 @@ import java.io.IOException;
 public class PiranhaRestApp {
 
     public static void main(String[] args) throws IOException, ServletException {
+
+        ClassDataSharing.init(args);
+
         EmbeddedPiranha piranha = new EmbeddedPiranhaBuilder()
                 .extensions(AnnotationScanExtension.class,
                         MyExtension.class,
@@ -27,6 +30,9 @@ public class PiranhaRestApp {
         cleanUpAtEnd(httpServer, piranha);
 
         httpServer.start();
+
+        ClassDataSharing.shutdownIfCDS(httpServer, piranha);
+
         System.out.println("Application started!");
 
     }
@@ -41,5 +47,26 @@ public class PiranhaRestApp {
             }
 
         });
+    }
+
+    private static class ClassDataSharing {
+
+        private static boolean classDataSharing = false;
+
+        public static void init(String[] args) {
+            if (args.length > 0) {
+                classDataSharing = args[0].equals("cds");
+            }
+        }
+
+        public static void shutdownIfCDS(DefaultHttpServer httpServer, EmbeddedPiranha piranha) {
+            if (classDataSharing) {
+                httpServer.stop();
+                piranha.stop()
+                        .destroy();
+                System.exit(0);
+            }
+        }
+
     }
 }
