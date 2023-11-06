@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>10.0.0</jakartaee>
-        <glassfish.version>7.0.5</glassfish.version>
+        <glassfish.version>7.0.10</glassfish.version>
     </properties>
     
     <dependencies>

@@ -19,7 +19,9 @@ public class EmbeddedGlassfishApp {
         glassfish.start();
 
         ScatteredArchive archive = new ScatteredArchive("simpleapp", ScatteredArchive.Type.WAR);
-        archive.addCurrentClassPath();
+        archive.addClassPath(new File("target", "classes"));
+        archive.addClassPath(new File("target/dependencies", "commons-codec-1.15.jar"));
+        archive.addClassPath(new File("target/dependencies", "jakarta.json-api-2.1.1.jar"));
 
         final Deployer deployer = glassfish.getDeployer();
         final String appName = deployer.deploy(archive.toURI(), "--contextroot=/");
@@ -42,16 +44,4 @@ public class EmbeddedGlassfishApp {
 
         });
     }
-
-    private static final String REGEX_FS = File.separator.replace("\\", "\\\\");
-
-    private static boolean jarFileMatchesAny(String pathElem, String... matches) {
-        for (String match : matches) {
-            if (pathElem.matches(".*" + REGEX_FS + match + "[^" + REGEX_FS + "]*\\.jar")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 }
