@@ -45,12 +45,12 @@ STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
 
 ```
 java -cp 'target/piranha-app-1.0-SNAPSHOT.jar:target/dependencies/*' \
-  -XX:ArchiveClassesAtExit=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
+  -XX:ArchiveClassesAtExit=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaApp cds
 ```
 
 ### Run with prepared class data
 
 ```
 STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
-  piranha - java -cp 'target/piranha-app-1.0-SNAPSHOT.jar:target/dependencies/*' -XX:SharedArchiveFile=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaMinimalApp
+  piranha - java -cp 'target/piranha-app-1.0-SNAPSHOT.jar:target/dependencies/*' -XX:SharedArchiveFile=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.PiranhaApp
 ```
