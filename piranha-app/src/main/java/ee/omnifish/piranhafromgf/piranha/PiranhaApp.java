@@ -3,7 +3,7 @@ package ee.omnifish.piranhafromgf.piranha;
 import cloud.piranha.embedded.EmbeddedPiranha;
 import cloud.piranha.embedded.EmbeddedPiranhaBuilder;
 import cloud.piranha.http.impl.DefaultHttpServer;
-import cloud.piranha.http.webapp.HttpWebApplicationServerProcessor;
+import cloud.piranha.http.webapp.HttpWebApplicationServer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.LogManager;
@@ -18,8 +18,11 @@ public class PiranhaApp {
                 .build();
 
         piranha.start();
-        var httpProcessor = new HttpWebApplicationServerProcessor(piranha);
-        var httpServer = new DefaultHttpServer(8080, httpProcessor, false);
+
+        var webServer = new HttpWebApplicationServer();
+        webServer.addWebApplication(piranha.getWebApplication());
+        var httpServer = new DefaultHttpServer(8080);
+        httpServer.setHttpServerProcessor(webServer);
 
         cleanUpAtEnd(httpServer, piranha);
 
