@@ -5,7 +5,7 @@ import cloud.piranha.embedded.EmbeddedPiranhaBuilder;
 import cloud.piranha.extension.annotationscan.AnnotationScanExtension;
 import cloud.piranha.extension.coreprofile.CoreProfileExtension;
 import cloud.piranha.http.impl.DefaultHttpServer;
-import cloud.piranha.http.webapp.HttpWebApplicationServerProcessor;
+import cloud.piranha.http.webapp.HttpWebApplicationServer;
 import jakarta.servlet.ServletException;
 import java.io.IOException;
 
@@ -19,8 +19,10 @@ public class PiranhaRestApp {
                 .build()
                 .start();
 
-        var httpProcessor = new HttpWebApplicationServerProcessor(piranha);
-        var httpServer = new DefaultHttpServer(8080, httpProcessor, false);
+        var webServer = new HttpWebApplicationServer();
+        webServer.addWebApplication(piranha.getWebApplication());
+        var httpServer = new DefaultHttpServer(8080);
+        httpServer.setHttpServerProcessor(webServer);
 
         cleanUpAtEnd(httpServer, piranha);
 
