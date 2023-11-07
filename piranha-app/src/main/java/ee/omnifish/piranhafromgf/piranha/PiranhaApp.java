@@ -59,7 +59,7 @@ public class PiranhaApp {
         });
     }
 
-    private static class ClassDataSharing {
+    static class ClassDataSharing {
 
         private static boolean classDataSharing = false;
 
@@ -71,7 +71,9 @@ public class PiranhaApp {
 
         public static void shutdownIfCDS(DefaultHttpServer httpServer, EmbeddedPiranha piranha) {
             if (classDataSharing) {
-                httpServer.stop();
+                if (httpServer != null) {
+                    httpServer.stop();
+                }
                 piranha.stop()
                         .destroy();
                 System.exit(0);
