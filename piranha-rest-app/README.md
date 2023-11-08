@@ -36,3 +36,11 @@ java -cp 'target/piranha-rest-app.jar:target/dependencies/*' -XX:ArchiveClassesA
 STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
   piranha http://localhost:8080/ java -cp 'target/piranha-rest-app.jar:target/dependencies/*' -XX:SharedArchiveFile=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.rest.PiranhaRestApp
 ```
+
+### All together
+
+```
+java -cp 'target/piranha-rest-app.jar:target/dependencies/*' -XX:ArchiveClassesAtExit=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.rest.PiranhaRestApp cds &&
+STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
+  piranha http://localhost:8080/ java -cp 'target/piranha-rest-app.jar:target/dependencies/*' -XX:SharedArchiveFile=target/piranha.jsa ee.omnifish.piranhafromgf.piranha.rest.PiranhaRestApp
+```
