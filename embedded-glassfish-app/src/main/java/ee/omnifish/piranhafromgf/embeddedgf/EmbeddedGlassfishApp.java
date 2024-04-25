@@ -20,7 +20,7 @@ public class EmbeddedGlassfishApp {
 
         ScatteredArchive archive = new ScatteredArchive("simpleapp", ScatteredArchive.Type.WAR);
         archive.addClassPath(new File("target", "classes"));
-        archive.addClassPath(new File("target/dependencies", "commons-codec-1.15.jar"));
+        archive.addClassPath(new File("target/dependencies", "commons-codec-1.16.0.jar"));
         archive.addClassPath(new File("target/dependencies", "jakarta.json-api-2.1.1.jar"));
 
         final Deployer deployer = glassfish.getDeployer();
