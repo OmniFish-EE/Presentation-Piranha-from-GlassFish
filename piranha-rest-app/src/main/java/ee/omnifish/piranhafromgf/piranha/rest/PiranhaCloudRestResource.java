@@ -14,12 +14,12 @@ public class PiranhaCloudRestResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String helloWorld() {
-        return "Hello from Piranha Cloud REST service in AWS Lambda!";
+        return "Hello from Piranha Cloud REST service!";
     }
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public String helloWorld(Person input) {
-        return "Hello, %s, from Piranha Cloud REST service in AWS Lambda!".formatted(input.getName());
+        return "Hello, %s, from Piranha Cloud REST service!".formatted(input.getName());
     }
 }

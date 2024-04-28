@@ -27,6 +27,12 @@
             <groupId>cloud.piranha.extension</groupId>
             <artifactId>piranha-extension-coreprofile</artifactId>
             <version>${piranha.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>cloud.piranha.extension</groupId>
+                    <artifactId>piranha-extension-weld</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         
         <dependency>
