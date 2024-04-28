@@ -18,6 +18,7 @@
         <module>glassfish-7-app</module>
         <module>embedded-glassfish-app</module>
         <module>springboot-app</module>
+        <module>springboot-rest-app</module>
         <module>piranha-app</module>
         <module>piranha-lambda</module>
     </modules>

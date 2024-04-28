@@ -9,7 +9,7 @@ mvn clean package
 ## Run
 
 ```
-java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.springboot.SpringBootApp
+java -jar target/springboot-app-*.jar
 ```
 
 Then access the app at http://localhost:8080
@@ -19,5 +19,5 @@ Then access the app at http://localhost:8080
 
 ```
 STARTUP_PHRASE='Started SpringBootApp' bash ../measure-startup-time.sh \
-  spring-boot http://localhost:8080/ java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.springboot.SpringBootApp
+  spring-boot http://localhost:8080/ java -jar 'target/springboot-app-*.jar'
 ```
