@@ -6,7 +6,22 @@
 mvn clean package
 ```
 
-## Run
+## Run with Maven
+
+```
+mvn exec:exec
+```
+
+Then access the app at http://localhost:8080
+
+
+You can specify a different HTTP port on the command line:
+
+```
+mvn exec:exec -Dhttp.port=9090
+```
+
+## Run with plain `java`
 
 ```
 java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.naming/javax.naming.spi=ALL-UNNAMED -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp
