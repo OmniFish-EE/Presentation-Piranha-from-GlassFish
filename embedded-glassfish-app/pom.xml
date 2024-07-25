@@ -12,7 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <exec.mainClass>ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp</exec.mainClass>
-        <glassfish.embedded.version>7.0.14</glassfish.embedded.version>
+        <glassfish.embedded.version>7.0.15</glassfish.embedded.version>
         <exec.executable>java</exec.executable>
     </properties>
     <name>Piranha from GF: Embedded GlassFish App</name>
@@ -41,8 +41,6 @@
                         <!-- add provided dependencies to classpath when executing the app from Maven/Netbeans-->
                         <classpathScope>compile</classpathScope>
                         <arguments>
-                            <argument>--add-opens=java.base/java.lang=ALL-UNNAMED</argument>
-                            <argument>--add-opens=java.naming/javax.naming.spi=ALL-UNNAMED</argument>
                             <argument>-Dhttp.port=${http.port}</argument>
                             <argument>-cp</argument>
                             <argument>${project.build.directory}/classes:${project.build.directory}/dependencies/*</argument>

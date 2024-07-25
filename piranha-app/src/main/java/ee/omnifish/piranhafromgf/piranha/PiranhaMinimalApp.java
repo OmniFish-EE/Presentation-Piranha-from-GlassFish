@@ -13,6 +13,7 @@ public class PiranhaMinimalApp {
 
     public static void main(String[] args) throws IOException, ServletException {
         ClassDataSharing.init(args);
+        
         EmbeddedPiranha piranha = new EmbeddedPiranhaBuilder()
                 .servletMapped(PiranhaSimpleServlet.class, "/")
                 .build();
