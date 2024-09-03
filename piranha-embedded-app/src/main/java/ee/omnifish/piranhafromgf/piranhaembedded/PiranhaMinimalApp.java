@@ -1,12 +1,15 @@
-package ee.omnifish.piranhafromgf.piranha;
+package ee.omnifish.piranhafromgf.piranhaembedded;
 
 import cloud.piranha.embedded.EmbeddedPiranha;
 import cloud.piranha.embedded.EmbeddedPiranhaBuilder;
 import cloud.piranha.embedded.EmbeddedRequest;
 import cloud.piranha.embedded.EmbeddedRequestBuilder;
 import cloud.piranha.embedded.EmbeddedResponse;
-import static ee.omnifish.piranhafromgf.piranha.PiranhaApp.ClassDataSharing;
+
+import static ee.omnifish.piranhafromgf.piranhaembedded.PiranhaApp.ClassDataSharing;
+
 import jakarta.servlet.ServletException;
+
 import java.io.IOException;
 
 public class PiranhaMinimalApp {

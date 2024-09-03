@@ -6,15 +6,15 @@
         <artifactId>piranha-from-gf-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>piranha-app</artifactId>
+    <artifactId>piranha-embedded-app</artifactId>
     <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <exec.mainClass>ee.omnifish.piranhafromgf.piranha.PiranhaApp</exec.mainClass>
+        <exec.mainClass>ee.omnifish.piranhafromgf.piranhaembedded.PiranhaApp</exec.mainClass>
         <piranha.version>23.10.0</piranha.version>
     </properties>
-    <name>Piranha from GF: Piranha App</name>
+    <name>Piranha from GF: Piranha Embedded App</name>
     
     <dependencies>
         <dependency>

@@ -1,4 +1,4 @@
-package ee.omnifish.piranhafromgf.piranha;
+package ee.omnifish.piranhafromgf.piranhaembedded;
 
 import cloud.piranha.embedded.EmbeddedPiranha;
 import cloud.piranha.embedded.EmbeddedPiranhaBuilder;

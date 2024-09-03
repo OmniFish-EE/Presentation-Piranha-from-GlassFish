@@ -1,14 +1,17 @@
-package ee.omnifish.piranhafromgf.piranha;
+package ee.omnifish.piranhafromgf.piranhawebprofile;
 
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/")
+@WebServlet("/piranha")
+@RequestScoped
 public class PiranhaSimpleServlet extends HttpServlet {
 
     @Override
@@ -16,7 +19,7 @@ public class PiranhaSimpleServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/plain");
         final PrintWriter writer = response.getWriter();
-        writer.println("Hello from Piranha Cloud!");
+        writer.println("Hello from Piranha Cloud - Web Profile!");
     }
 
 }

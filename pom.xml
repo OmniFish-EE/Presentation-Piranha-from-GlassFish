@@ -19,7 +19,8 @@
         <module>embedded-glassfish-app</module>
         <module>springboot-app</module>
         <module>springboot-rest-app</module>
-        <module>piranha-app</module>
+        <module>piranha-webprofile-app</module>
+        <module>piranha-embedded-app</module>
         <module>piranha-lambda</module>
     </modules>
     
@@ -35,6 +36,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.3.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.8.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
