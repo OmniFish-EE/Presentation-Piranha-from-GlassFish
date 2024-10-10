@@ -1,0 +1,1 @@
+target/glassfish7/bin/startserv domain1

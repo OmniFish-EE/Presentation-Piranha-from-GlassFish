@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>10.0.0</jakartaee>
-        <glassfish.version>7.0.10</glassfish.version>
+        <glassfish.version>7.0.18</glassfish.version>
     </properties>
     
     <dependencies>
@@ -80,7 +80,7 @@
                         <version>3.3.0</version>
                         <executions>
                             <execution>
-                                <id>copy-resources</id>
+                                <id>copy-app</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>copy-resources</goal>
@@ -92,10 +92,10 @@
                                             <directory>${project.build.directory}</directory>
                                             <filtering>false</filtering>
                                             <includes>
-                                                <include>*.war</include>
+                                                <include>simpleapp/**</include>
                                             </includes>
                                         </resource>
-                                    </resources>              
+                                    </resources>
                                 </configuration>            
                             </execution>
                         </executions>

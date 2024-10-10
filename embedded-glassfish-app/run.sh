@@ -1,0 +1,1 @@
+java -jar target/dependencies/glassfish-embedded-all.jar target/webapp.war 

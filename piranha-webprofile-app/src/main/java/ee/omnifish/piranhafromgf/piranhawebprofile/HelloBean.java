@@ -7,7 +7,7 @@ import jakarta.inject.Named;
 @RequestScoped
 public class HelloBean {
 
-    private String hello = "Hello from Jakarta Faces!";
+    private String hello = "Hello from Jakarta Faces in Piranha!";
 
     public String getHello() {
         return hello;

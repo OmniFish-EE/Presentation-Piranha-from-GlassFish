@@ -1,0 +1,1 @@
+java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranhaembedded.PiranhaApp

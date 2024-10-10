@@ -1,0 +1,2 @@
+STARTUP_PHRASE='Application started' bash ../measure-startup-time.sh \
+  piranha http://localhost:8080/ java -cp 'target/classes:target/dependencies/*' ee.omnifish.piranhafromgf.piranhaembedded.PiranhaApp

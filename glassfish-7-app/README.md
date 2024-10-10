@@ -9,7 +9,7 @@ mvn -Pdownload-gf clean package
 ## Run
 
 ```
-target/glassfish7/bin/asadmin start-domain -v domain1
+target/glassfish7/bin/startserv domain1
 ```
 
 Then access the app at http://localhost:8080/simpleapp
@@ -18,7 +18,7 @@ Then access the app at http://localhost:8080/simpleapp
 
 ```
 STARTUP_PHRASE='successfully deployed\|simpleapp done' bash ../measure-startup-time.sh \
-  glassfish7 http://localhost:8080/simpleapp target/glassfish7/bin/asadmin start-domain -v domain1 
+  glassfish7 http://localhost:8080/simpleapp target/glassfish7/bin/startserv domain1 
 ```
 
 ## Run with timing in Docker

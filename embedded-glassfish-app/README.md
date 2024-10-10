@@ -21,6 +21,17 @@ You can specify a different HTTP port on the command line:
 mvn exec:exec -Dhttp.port=9090
 ```
 
+## Run with runnable JAR
+
+java -jar target/dependencies/glassfish-embedded-all.jar target/webapp.war 
+
+## Run with timing
+
+```
+STARTUP_PHRASE='successfully deployed' bash ../measure-startup-time.sh \
+  embedded-gf http://localhost:8080/ java -jar target/dependencies/glassfish-embedded-all.jar target/webapp.war
+```
+
 ## Run with plain `java`
 
 ```
@@ -38,7 +49,7 @@ Then access the app at http://localhost:8080
 
 
 
-## Run with timing
+### Run with timing
 
 ```
 STARTUP_PHRASE='successfully deployed' bash ../measure-startup-time.sh \
