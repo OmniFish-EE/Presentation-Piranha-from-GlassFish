@@ -16,7 +16,7 @@ public class GlassFish7SimpleServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/plain");
         final PrintWriter writer = response.getWriter();
-        writer.println("Hello from GlassFish 7 again!");
+        writer.println("Hello from GlassFish 7!");
     }
 
 }

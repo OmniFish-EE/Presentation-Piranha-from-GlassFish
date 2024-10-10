@@ -25,7 +25,7 @@ mvn exec:exec -Dhttp.port=9090
 
 java -jar target/dependencies/glassfish-embedded-all.jar target/webapp.war 
 
-## Run with timing
+### Run with timing
 
 ```
 STARTUP_PHRASE='successfully deployed' bash ../measure-startup-time.sh \
