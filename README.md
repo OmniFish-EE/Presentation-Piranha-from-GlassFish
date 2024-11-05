@@ -10,6 +10,7 @@ This repository contains
   * [glassfish-7-app](glassfish-7-app) - runs on [Eclipse GlassFish](https://glassfish.org/) 7
   * [embedded-glassfish-app](embedded-glassfish-app) - runs on Eclipse GlassFish 7 Embedded
   * [springboot-app](springboot-app) - runs on [SpringBoot](https://spring.io/projects/spring-boot)
+  * [tomcat-app](tomcat-app) - runs on plain Apache Tomcat server
   * [piranha-app](piranha-app) - runs on [Piranha Cloud](https://piranha.cloud/)
   * [piranha-lambda](piranha-lambda) - runs on [Piranha Cloud](https://piranha.cloud/) in [AWS Lambda](https://aws.amazon.com/lambda/)
 
