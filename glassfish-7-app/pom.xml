@@ -19,6 +19,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>10.0.0</jakartaee>
         <glassfish.version>7.0.25</glassfish.version>
+        <!--<glassfish.version>7.1.0-SNAPSHOT</glassfish.version>-->
         <payara.version>6.2025.5</payara.version>
         <wildfly.version>36.0.1.Final</wildfly.version>
     </properties>

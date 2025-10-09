@@ -41,8 +41,10 @@ Needs Java 25.
 ### Build AOT cache
 
 ```
-java -XX:AOTCacheOutput=target/glassfish.aot -jar target/dependencies/glassfish-embedded-all.jar --stop target/webapp.war
+java -XX:AOTCacheOutput=target/glassfish.aot -jar target/dependencies/glassfish-embedded-all.jar target/webapp.war
 ```
+
+Then stop with Ctrl+C
 
 ### Run with AOT cache
 

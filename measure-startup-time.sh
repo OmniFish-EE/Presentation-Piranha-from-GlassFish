@@ -63,7 +63,7 @@ do
 
     rm -rf /tmp/$RUNTIME.pid
     rm -rf /tmp/$RUNTIME.log
-    time (setsid $COMMAND > /tmp/$RUNTIME.log 2>&1 & echo $! > /tmp/$RUNTIME.pid && tail -f /tmp/$RUNTIME.log | sed "/$STARTUP_PHRASE/ q" > /dev/null && test "$URL" "!=" - && echo && curl $URL 2>&1)
+    time (setsid $COMMAND > /tmp/$RUNTIME.log 2>&1 & echo $! > /tmp/$RUNTIME.pid && tail -f /tmp/$RUNTIME.log | sed "/$STARTUP_PHRASE/ q" > /dev/null && test "$URL" "!=" - && echo && until curl $URL; do sleep 0.01; done 2>&1)
     echo URL: $URL
 
     if [ "$WAIT" = "yes" ]

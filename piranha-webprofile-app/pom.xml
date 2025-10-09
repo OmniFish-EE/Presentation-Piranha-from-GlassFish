@@ -17,7 +17,7 @@
         <jakartaee.version>10.0.0</jakartaee.version>
         <junit.version>5.11.0</junit.version>
         <piranha.distribution>webprofile</piranha.distribution>
-        <piranha.version>24.8.0</piranha.version>
+        <piranha.version>25.6.0</piranha.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
     </properties>
@@ -46,10 +46,16 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>cloud.piranha.dist</groupId>
             <artifactId>piranha-dist-webprofile</artifactId>
-            <version>24.8.0</version>
+            <version>${piranha.version}</version>
+            <scope>provided</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>cloud.piranha.dist</groupId>
+            <artifactId>piranha-dist-servlet</artifactId>
+            <version>${piranha.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
