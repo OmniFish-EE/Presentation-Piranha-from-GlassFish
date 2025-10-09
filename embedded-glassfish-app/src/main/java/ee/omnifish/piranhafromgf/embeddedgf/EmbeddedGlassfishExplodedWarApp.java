@@ -18,8 +18,11 @@ public class EmbeddedGlassfishExplodedWarApp {
         glassfish.start();
 
         final Deployer deployer = glassfish.getDeployer();
-        final String appName = deployer.deploy(new File("target", "webapp.war").toURI(), 
+//        deployOpenMQ(glassfish);
+        final String appName = deployer.deploy(new File("target", "webapp.war").toURI(),
                 "--contextroot=/", "--type=war");
+//        final String appName = deployer.deploy(new File("/home/ondro/workspaces/OmniFish/sample-apps/cargotracker/target/cargo-tracker").toURI(),
+//                "--contextroot=/", "--type=war");
         cleanUpAtEnd(deployer, appName, glassfish);
         System.out.println("Application deployed!");
 
@@ -38,5 +41,13 @@ public class EmbeddedGlassfishExplodedWarApp {
             }
 
         });
+    }
+
+    private static void deployOpenMQ(GlassFish glassfish) throws GlassFishException {
+        final String rarName = glassfish.getDeployer().deploy(new File("../glassfish-7-app/target/glassfish7/mq/lib/imqjmsra.rar").toURI(),
+                "--type=rar", "--name=jmsra");
+        glassfish.getCommandRunner().run("create-connector-connection-pool", "--connectiondefinitionname=jakarta.jms.ConnectionFactory", "--resourceAdapterName=jmsra", "jmspool");
+        glassfish.getCommandRunner().run("create-connector-resource", "--poolName=jmspool", "jms/__defaultConnectionFactory"
+);
     }
 }

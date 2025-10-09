@@ -12,8 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <exec.mainClass>ee.omnifish.piranhafromgf.embeddedgf.EmbeddedGlassfishApp</exec.mainClass>
-        <!--<glassfish.embedded.version>7.0.2</glassfish.embedded.version>-->
-        <glassfish.embedded.version>7.0.18</glassfish.embedded.version>
+        <glassfish.embedded.version>7.0.25</glassfish.embedded.version>
         <exec.executable>java</exec.executable>
     </properties>
     <name>Piranha from GF: Embedded GlassFish App</name>
@@ -21,9 +20,9 @@
         <dependency>
             <groupId>org.glassfish.main.extras</groupId>
             <artifactId>glassfish-embedded-all</artifactId>
-    <version>${glassfish.embedded.version}</version>
+            <version>${glassfish.embedded.version}</version>
             <scope>provided</scope>
-</dependency>
+        </dependency>
         <dependency>
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>

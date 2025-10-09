@@ -14,6 +14,22 @@ target/glassfish7/bin/startserv domain1
 
 Then access the app at http://localhost:8080/simpleapp
 
+## Building AOT cache
+
+Requires Java 25
+
+```
+target/glassfish7/bin/asadmin start-domain domain1
+asadmin create-jvm-options '-XX\:AOTCacheOutput=glassfish.aot'
+target/glassfish7/bin/asadmin stop-domain domain1
+target/glassfish7/bin/asadmin start-domain domain1
+asadmin delete-jvm-options '-XX\:AOTCacheOutput=glassfish.aot'
+asadmin create-jvm-options '-XX\:AOTCache=glassfish.aot'
+target/glassfish7/bin/asadmin stop-domain domain1
+```
+
+Then run normally. It will run with the AOT Cache. Though gives some errors with GF 7.0.25 and ignores the cache.
+
 ## Run with timing
 
 ```
